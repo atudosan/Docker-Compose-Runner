@@ -1,0 +1,28 @@
+version: "3"
+services: 
+  hub:
+    image: selenium/hub:3.141.59
+  chrome:
+    image: selenium/node-chrome:3.141.59
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  firefox:
+    image: selenium/node-firefox:3.141.59
+    shm_size: '1gb'
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  testSuites:
+    image: atudosan/selenium-docker-allinonexml
+    depends_on: 
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - MODULE=testng.xml
+    volumes:
+      - ./output/testng:/usr/docker/test-output

@@ -1,0 +1,14 @@
+Hello, Thank you for reviewing my repository
+In order to run my Docker-Compose file you need to have Docker install in you machine.
+Then open terminal right there where you pull this file and run following command: docker-compose up
+This will run 4 images:
+1. selenium hub
+2. selenium chrome
+3. selenium firefox
+4. and my image atudosan/selenium-docker  
+
+If you have any question about my project please don't hesitate to contact me
+atudosan2@gmail.com
+
+
+
